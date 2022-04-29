@@ -11,4 +11,4 @@ elif n == 0:
     print("Last digit of {} is {} and is 0\n".format(number, n))
 else:
     print("Last digit of {} is {} and is less than 6 and not 0\n"
-            .format(number, n))
+          .format(number, n))
