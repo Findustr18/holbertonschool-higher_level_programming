@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    from sys import argv
+    from sys import argv, exit
     from calculator_1 import add, sub, mul, div
     if len(argv) != 4:
         print("Usage:", argv[0], "<a> <operator> <a>")
