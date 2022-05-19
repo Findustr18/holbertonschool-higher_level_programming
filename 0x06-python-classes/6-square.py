@@ -4,10 +4,6 @@
 
 class Square:
     """ Initialization of the class """
-    def __init__(self, size=0):
-
-        self.size = size
-
     def area(self):
         """ Calculate the square's area """
         return self.__size ** 2
