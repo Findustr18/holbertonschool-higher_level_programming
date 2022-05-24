@@ -14,8 +14,8 @@ class Rectangle:
         TypeError: data not an int
         ValueError: data below zero
         """
-        self.width = width
         self.height = height
+        self.width = width
 
         @property
         def width(self):
