@@ -10,9 +10,17 @@ class Rectangle:
         Args:
             width: x number of elements
             height: y number of elements
+
         Raises:
         TypeError: data not an int
         ValueError: data below zero
+
+        Functions:
+        __init__(self, width, height)
+        width(self)
+        width(self, value)
+        height(self)
+        height(self, value)
         """
         self.height = height
         self.width = width
@@ -20,7 +28,7 @@ class Rectangle:
         @property
         def width(self):
             """ Getter for width """
-            return self.__width
+            return self.width
 
         @width.setter
         def width(self, value):
@@ -29,18 +37,18 @@ class Rectangle:
                 raise TypeError("width must be an integer")
             if width < 0:
                 raise ValueError("width must be >= 0")
-            self.__width = value
+            self.width = value
 
         @property
-        def height(self):
+        def hight(self):
             """ Getter for height """
-            return self.__height
+            return self.hight
 
-        @height.setter
-        def height(self, value):
+        @hight.setter
+        def hight(self, value):
             """ Setter for height """
             if not isinstance(value, int):
                 raise TypeError("height must be an integer")
             if height < 0:
                 raise ValueError("height must be >= 0")
-            self.__height = value
+            self.hight = value
