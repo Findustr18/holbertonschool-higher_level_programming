@@ -3,25 +3,20 @@
 
 
 class Rectangle:
-    """ class that defines a rectangle """
-    def __init__(self, width=0, height=0):
-        """
-        Method that defines instances of a new rectangle
-        Args:
-            width: x number of elements
-            height: y number of elements
-
-        Raises:
-        TypeError: data not an int
-        ValueError: data below zero
+    """ class that defines a rectangle
+    Args:
+        width (int): width
+        height (int): height
 
         Functions:
         __init__(self, width, height)
         width(self)
         width(self, value)
         height(self)
-        height(self, value)
-        """
+        height(self, value)  
+    """
+    def __init__(self, width=0, height=0):
+        """ Method that defines instances of a new rectangle """
         self.height = height
         self.width = width
 
@@ -40,15 +35,15 @@ class Rectangle:
             self.__width = value
 
         @property
-        def hight(self):
+        def height(self):
             """ Getter for height """
-            return self.__hight
+            return self.__height
 
-        @hight.setter
-        def hight(self, value):
+        @height.setter
+        def height(self, value):
             """ Setter for height """
             if not isinstance(value, int):
                 raise TypeError("height must be an integer")
             if height < 0:
                 raise ValueError("height must be >= 0")
-            self.__hight = value
+            self.__height = value
