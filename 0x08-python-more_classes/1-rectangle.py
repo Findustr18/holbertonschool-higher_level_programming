@@ -2,7 +2,7 @@
 """ Class Rectangle """
 
 
-class Rectangle:
+class Rectangle(object):
     """ class that defines a rectangle
     Args:
         width (int): width
