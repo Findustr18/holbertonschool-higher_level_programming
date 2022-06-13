@@ -19,7 +19,7 @@ class Rectangle:
         """ Method that defines instances of a new rectangle """
         self.height = height
         self.width = width
-    
+
     @property
     def width(self):
         """ Getter for width """
