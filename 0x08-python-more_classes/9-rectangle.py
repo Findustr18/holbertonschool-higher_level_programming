@@ -19,12 +19,12 @@ class Rectangle:
         """
         self.height = height
         self.width = width
-        type(self).number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     def __del__(self):
         """ Delete instance of class """
         print("Bye rectangle...")
-        type(self).number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
 
     @property
     def width(self):
@@ -67,7 +67,7 @@ class Rectangle:
     def __str__(self):
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
-            return ""
+            return ("")
         pic = "\n".join([str(self.print_symbol) * self.__width
                         for rows in range(self.__height)])
         return pic
