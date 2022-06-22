@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-This modules has a class Mylist that inherits from
-list. Has a public instance method print_sorted that
-prints the list in ascending order
+Module 1-my_list
+
+Contains class MyList
+inherits from list; has public instance method to print sorted
 """
 
 
