@@ -8,7 +8,7 @@ prints the list in ascending order
 
 class MyList(list):
     """inherits from list
-    
+
     methods:
     print_sorted(self)
     """
