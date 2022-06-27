@@ -17,7 +17,7 @@ class Base:
     def __init__(self, id=None):
         """ Initialize id, increment class attribute if no
         id and set as id
-	"""
+        """
         if id:
             self.id = id
         else:
