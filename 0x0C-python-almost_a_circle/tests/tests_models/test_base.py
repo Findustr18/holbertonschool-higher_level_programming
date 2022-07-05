@@ -1,72 +1,67 @@
 #!/usr/bin/python3
 """
-    Conteins tests for Base class.
+Module Documentation
+Unittest for the base.py file
+Tests cases for the class Base
 """
-
-
 import unittest
-import json
-import pep8
-import json
-import sys
-import io
-from models import base
+import pycodestyle
 from models.base import Base
-
-
-class TestPep8B(unittest.TestCase):
-    """ check for pep8 validation """
-    def test_pep8(self):
-        """ test base and test_base for pep8 conformance """
-        style = pep8.StyleGuide(quiet=True)
-        file1 = 'models/base.py'
-        file2 = 'tests/test_models/test_base.py'
-        result = style.check_files([file1, file2])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warning).")
-
-
-class TestDocsB(unittest.TestCase):
-    """ check for documentation """
-    def test_module_doc(self):
-        """ check for module documentation """
-        self.assertTrue(len(base.__doc__) > 0)
-
-    def test_class_doc(self):
-        """ check for documentation """
-        self.assertTrue(len(Base.__doc__) > 0)
-
-    def test_method_docs(self):
-        """ check for method documentation """
-        for func in dir(Base):
-            self.assertTrue(len(func.__doc__) > 0)
 
 
 class TestBase(unittest.TestCase):
     """
-    Class containing functions to test on the Bass class:
-        * Functionality.
-        * Style.
-        * Documentation.
+    Class Documentation
+    Class created to test the Base Class
     """
-    def SetUp(self):
-        """ Method to set the start point """
-        Base.Base__nb_objects = 0
 
-    def test_0_id(self):
+    def test_pycodestyle(self):
         """
-        Test to chec for id method.
+        Test if the code pass the pycodestyle
         """
-        b0 = Base()
-        b1 = Base(23)
-        b2 = Base("text")
-        self.assertEqual(b0.id, 1)
-        self.assertEqual(b1.id, 23)
-        self.assertEqual(b2.id, "text")
+        style = pycodestyle.StyleGuide()
+        checker = style.check_files(['models/base.py'])
+        self.assertEqual(checker.total_errors, 0)
 
-if __name__ == '__main__':
-        unittest.main()
+    def test_documentation(self):
+        """
+        Test if the code have documentation for each:
+        Class and Function
+        """
+        self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(Base.__init__.__doc__)
 
-# Test
-# python3 -m unittest discover tests
-# python3 -m unittest tests/test_models/test_base.py
+    def test_word_count_documentation(self):
+        """
+        Test if the Base Class documentation
+        Have more than 10 chars.
+        """
+        num_chars = len(Base.__doc__)
+        self.assertGreaterEqual(num_chars, 10)
+
+    def test_word_count_init_documentation(self):
+        """
+        Test if the Base init function documentation
+        Have more than 10 chars.
+        """
+        num_chars = len(Base.__init__.__doc__)
+        self.assertGreaterEqual(num_chars, 10)
+
+    def test_init(self):
+        """
+        Test that checks the initialization of the 
+        Base class with no id
+        """
+        new_obj = Base()
+        self.assertTrue(isinstance(new_obj, Base))
+        self.assertGreaterEqual(new_obj.id, 0)
+
+    def test_init_with_id(self):
+        """
+        Test that checks the initialization of the
+        Base Class with an id
+        """
+        x = 12
+        new_obj = Base(x)
+        self.assertTrue(isinstance(new_obj, Base))
+        self.assertEqual(new_obj.id, x)
