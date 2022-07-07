@@ -92,3 +92,11 @@ class Rectangle(Base):
         return "[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.__class__.__name__, self.id, self.__x, self.__y,
             self.__width, self.__height)
+
+    def update(self, *args):
+        """ Assigns an argument to each attribute """
+        if args:
+            atribute = ["id", "width", "height", "x", "y"]
+            for idx, value in enumerate(args):
+                if idx < 5:
+                    setattr(self, atribute[idx], value)
