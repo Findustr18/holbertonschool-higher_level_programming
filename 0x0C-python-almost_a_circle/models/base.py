@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """
 Write the first class Base
+Contains private class __nb_objects, and class constructor __init__
+Returns JSON string representation of list dictionaries
 """
+
+
+import json
 
 
 class Base:
@@ -11,6 +16,8 @@ class Base:
         __nb_objects
     Methods:
         __init__(self, id=None)
+    Static Methods:
+            to_json_string(list_dictionaries)
     """
     __nb_objects = 0
 
@@ -23,3 +30,9 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """ Returns JSON string representation of list dict """
+        if list_dictionaries is None:
+            list_dictionaries = []
+        return json.dumps(list_dictionaries)
