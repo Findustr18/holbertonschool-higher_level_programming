@@ -22,17 +22,20 @@ class Square(Rectangle):
 
     @property
     def size(self):
-        """getter size"""
-        return self.__size
+        """
+        This function returns the size (Getter)
+        You can return either width or height since they are the same.
+        """
+        return self.width
 
     @size.setter
     def size(self, value):
-        """Setter of size"""
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        if value <= 0:
-            raise ValueError("size must be > 0")
-        self.__size = value
+        """
+        The Setter should assign (in this order) the width
+        and the height - with the same value
+        """
+        self.width = value
+        self.height = value
 
     def __str__(self):
         """
