@@ -1,11 +1,14 @@
 #!/usr/bin/node
 // script that searches the second biggest integer in the list of arguments
 
-const args = process.argv;
-const nextMax = args.length;
-if (nextMax > 3) {
-  args.sort();
-  console.log(args[nextMax - 2]);
-} else {
-  console.log(0);
+const numsArray = process.argv.slice(2);
+function secondMax (array) {
+  if (array.length < 2) {
+    return (0);
+  } else {
+    array.sort((x, y) => x - y);
+    array.pop();
+    return (array.pop());
+  }
 }
+console.log(secondMax(numsArray));
