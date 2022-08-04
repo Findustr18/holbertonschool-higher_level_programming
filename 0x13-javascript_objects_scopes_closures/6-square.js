@@ -1,8 +1,8 @@
 #!/usr/bin/node
 // Class Square that inherits from rectangle
-const Square1 = require('./5-square');
+const BaseSquare = require('./5-square');
 
-module.exports = class Square extends Square1 {
+module.exports = class Square extends BaseSquare {
   charPrint (c) {
     if (c === undefined) {
       this.print();
