@@ -1,6 +1,6 @@
 #!/usr/bin/node
 // Class Square that inherits from rectangle
-const BaseSquare = require('./5-square');
+const BaseSquare = require('./5-square.js');
 
 module.exports = class Square extends BaseSquare {
   charPrint (c) {
