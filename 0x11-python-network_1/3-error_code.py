@@ -1,20 +1,15 @@
 #!/usr/bin/python3
 """
-    Script that send a POST request to the passed URL
-    Return the body of the response.
+given URL & email as params, display response body utf-8, print error codes
+usage: ./3-error_code.py http://0.0.0.0:5000/status_401
 """
-from urllib.request import urlopen
-from urllib.error import HTTPError
 from sys import argv
+import urllib.request
 
 
 if __name__ == "__main__":
     try:
-        with urlopen(argv[1]) as body:
-            print(body.read().decode("utf-8"))
-    except HTTPError as err:
-        print("Error code: {}".format(err.code))
-
-
-# encode: when the result contains "str" data ==> "bytes" data
-# decode: when the result contains "bytes" data ==> "str" data
+        with urllib.request.urlopen(argv[1]) as response:
+            print(response.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        print("Error code: {}".format(e.code))
