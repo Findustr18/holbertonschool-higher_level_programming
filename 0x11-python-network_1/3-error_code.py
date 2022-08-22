@@ -1,18 +1,20 @@
 #!/usr/bin/python3
 """
-Script that takes in a URL, sends a request to the URL
-and displays the body of the response (decoded in utf-8).
+    Script that send a POST request to the passed URL
+    Return the body of the response.
 """
-
-from urllib import request
+from urllib.request import urlopen
+from urllib.error import HTTPError
 from sys import argv
 
+
 if __name__ == "__main__":
-    url = argv[1]
-    req = request.Request(url)
     try:
-        with request.urlopen(req) as response:
-            body = response.read()
-            print(body.decode('utf-8'))
-    except request.HTTPError as error:
-        print("Error code: {}".format(error.code))
+        with urlopen(argv[1]) as body:
+            print(body.read().decode("utf-8"))
+    except HTTPError as err:
+        print("Error code: {}".format(err.code))
+
+
+# encode: when the result contains "str" data ==> "bytes" data
+# decode: when the result contains "bytes" data ==> "str" data
